@@ -1,0 +1,14 @@
+/Users/viktoriababchenko/pet-projects/Parallel-computational-processes/lab1/SequenceThread-C#/bin/Debug/net9.0/SequenceThread-C#
+/Users/viktoriababchenko/pet-projects/Parallel-computational-processes/lab1/SequenceThread-C#/bin/Debug/net9.0/SequenceThread-C#.deps.json
+/Users/viktoriababchenko/pet-projects/Parallel-computational-processes/lab1/SequenceThread-C#/bin/Debug/net9.0/SequenceThread-C#.runtimeconfig.json
+/Users/viktoriababchenko/pet-projects/Parallel-computational-processes/lab1/SequenceThread-C#/bin/Debug/net9.0/SequenceThread-C#.dll
+/Users/viktoriababchenko/pet-projects/Parallel-computational-processes/lab1/SequenceThread-C#/bin/Debug/net9.0/SequenceThread-C#.pdb
+/Users/viktoriababchenko/pet-projects/Parallel-computational-processes/lab1/SequenceThread-C#/obj/Debug/net9.0/SequenceThread-C#.GeneratedMSBuildEditorConfig.editorconfig
+/Users/viktoriababchenko/pet-projects/Parallel-computational-processes/lab1/SequenceThread-C#/obj/Debug/net9.0/SequenceThread-C#.AssemblyInfoInputs.cache
+/Users/viktoriababchenko/pet-projects/Parallel-computational-processes/lab1/SequenceThread-C#/obj/Debug/net9.0/SequenceThread-C#.AssemblyInfo.cs
+/Users/viktoriababchenko/pet-projects/Parallel-computational-processes/lab1/SequenceThread-C#/obj/Debug/net9.0/SequenceThread-C#.csproj.CoreCompileInputs.cache
+/Users/viktoriababchenko/pet-projects/Parallel-computational-processes/lab1/SequenceThread-C#/obj/Debug/net9.0/SequenceThread-C#.dll
+/Users/viktoriababchenko/pet-projects/Parallel-computational-processes/lab1/SequenceThread-C#/obj/Debug/net9.0/refint/SequenceThread-C#.dll
+/Users/viktoriababchenko/pet-projects/Parallel-computational-processes/lab1/SequenceThread-C#/obj/Debug/net9.0/SequenceThread-C#.pdb
+/Users/viktoriababchenko/pet-projects/Parallel-computational-processes/lab1/SequenceThread-C#/obj/Debug/net9.0/SequenceThread-C#.genruntimeconfig.cache
+/Users/viktoriababchenko/pet-projects/Parallel-computational-processes/lab1/SequenceThread-C#/obj/Debug/net9.0/ref/SequenceThread-C#.dll
