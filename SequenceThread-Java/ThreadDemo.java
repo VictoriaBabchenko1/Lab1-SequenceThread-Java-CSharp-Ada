@@ -34,15 +34,15 @@ public class ThreadDemo {
             try {
                 numberOfThreads = Integer.parseInt(args[0]);
                 if (numberOfThreads <= 0) {
-                    System.out.println("Количество потоков должно быть положительным числом.");
+                    System.out.println("Кількість потоків повинна бути додатнім числом");
                     return;
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Неверный формат аргумента. Пожалуйста, введите целое число для количества потоков.");
+                System.out.println("Невірний формат");
                 return;
             }
         } else {
-            System.out.println("Количество потоков не указано. Используется значение по умолчанию: 3");
+            System.out.println("Кількість поторків не вказана, використовуємо кількість за замовчуванням: 3");
             numberOfThreads = 3;
         }
 
