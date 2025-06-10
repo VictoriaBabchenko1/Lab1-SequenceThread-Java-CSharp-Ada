@@ -21,7 +21,14 @@ class SequenceThread
             sum += current;
             current += step;
             count++;
-            Thread.Sleep(10);
+            try
+            {
+                Thread.Sleep(10);
+            }
+            catch (ThreadInterruptedException)
+            {
+                break;
+            }
         }
         Console.WriteLine($"Thread {threadId}: Sum = {sum}, Count = {count}");
     }
@@ -29,12 +36,35 @@ class SequenceThread
 
 class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
-        int[] steps = { 1, 2, 3 };
-        for (int i = 0; i < steps.Length; i++)
+        int numberOfThreads = 0;
+
+        if (args.Length > 0)
         {
-            var threadObj = new SequenceThread(steps[i], i + 1);
+            if (int.TryParse(args[0], out numberOfThreads))
+            {
+                if (numberOfThreads <= 0)
+                {
+                    Console.WriteLine("Количество потоков должно быть положительным числом.");
+                    return;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Неверный формат аргумента. Пожалуйста, введите целое число для количества потоков.");
+                return;
+            }
+        }
+        else
+        {
+            Console.WriteLine("Количество потоков не указано. Используется значение по умолчанию: 3");
+            numberOfThreads = 3;
+        }
+
+        for (int i = 0; i < numberOfThreads; i++)
+        {
+            var threadObj = new SequenceThread(i + 1, i + 1);
             new Thread(new ThreadStart(threadObj.Run)).Start();
         }
     }

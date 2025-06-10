@@ -15,7 +15,12 @@ class SequenceThread extends Thread {
             sum += current;
             current += step;
             count++;
-            try { Thread.sleep(10); } catch (InterruptedException e) { break; }
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                break;
+            }
         }
         System.out.println("Thread " + threadId + ": Sum = " + sum + ", Count = " + count);
     }
@@ -23,9 +28,27 @@ class SequenceThread extends Thread {
 
 public class ThreadDemo {
     public static void main(String[] args) {
-        int[] steps = {1, 2, 3};
-        for (int i = 0; i < steps.length; i++) {
-            new SequenceThread(steps[i], i + 1).start();
+        int numberOfThreads = 0;
+
+        if (args.length > 0) {
+            try {
+                numberOfThreads = Integer.parseInt(args[0]);
+                if (numberOfThreads <= 0) {
+                    System.out.println("Количество потоков должно быть положительным числом.");
+                    return;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Неверный формат аргумента. Пожалуйста, введите целое число для количества потоков.");
+                return;
+            }
+        } else {
+            System.out.println("Количество потоков не указано. Используется значение по умолчанию: 3");
+            numberOfThreads = 3;
+        }
+
+        for (int i = 0; i < numberOfThreads; i++) {
+            int stepForThread = i + 1;
+            new SequenceThread(stepForThread, i + 1).start();
         }
     }
 }

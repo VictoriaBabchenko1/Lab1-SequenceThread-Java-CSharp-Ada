@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SequenceThread-C#")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d997cccacc4d44efe540d78ca63b9b655ba3d441")]
 [assembly: System.Reflection.AssemblyProductAttribute("SequenceThread-C#")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SequenceThread-C#")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

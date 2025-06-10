@@ -12,3 +12,4 @@
 /Users/viktoriababchenko/pet-projects/Parallel-computational-processes/lab1/SequenceThread-C#/obj/Debug/net9.0/SequenceThread-C#.pdb
 /Users/viktoriababchenko/pet-projects/Parallel-computational-processes/lab1/SequenceThread-C#/obj/Debug/net9.0/SequenceThread-C#.genruntimeconfig.cache
 /Users/viktoriababchenko/pet-projects/Parallel-computational-processes/lab1/SequenceThread-C#/obj/Debug/net9.0/ref/SequenceThread-C#.dll
+/Users/viktoriababchenko/pet-projects/Parallel-computational-processes/lab1/SequenceThread-C#/obj/Debug/net9.0/SequenceThread-C#.sourcelink.json
