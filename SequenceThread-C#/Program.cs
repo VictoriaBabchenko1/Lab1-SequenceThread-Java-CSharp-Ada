@@ -1,71 +1,57 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 
-class SequenceThread
+namespace SequenceThread_C_
 {
-    int step, threadId, count = 0;
-    long sum = 0;
-
-    public SequenceThread(int step, int threadId)
+    public class Program
     {
-        this.step = step;
-        this.threadId = threadId;
-    }
+        internal static readonly object START_LOCK = new object(); 
+        internal static bool started = false; 
 
-    public void Run()
-    {
-        int current = 0;
-        var start = DateTime.Now;
-        while ((DateTime.Now - start).TotalSeconds < 3)
-        {
-            sum += current;
-            current += step;
-            count++;
-            try
-            {
-                Thread.Sleep(10);
-            }
-            catch (ThreadInterruptedException)
-            {
-                break;
-            }
-        }
-        Console.WriteLine($"Thread {threadId}: Sum = {sum}, Count = {count}");
-    }
-}
+         public static int THREAD_COUNT;
+        public static double STEP; 
 
-class Program
-{
-    static void Main(string[] args)
-    {
-        int numberOfThreads = 0;
-
-        if (args.Length > 0)
+        public static void Main(string[] args)
         {
-            if (int.TryParse(args[0], out numberOfThreads))
+            Console.Write("Введіть кількість потоків: ");
+            if (!int.TryParse(Console.ReadLine(), out THREAD_COUNT) || THREAD_COUNT <= 0)
             {
-                if (numberOfThreads <= 0)
-                {
-                    Console.WriteLine("Кількість потоків повинна бути додатнім числом");
-                    return;
-                }
+                Console.WriteLine("Невірне значення, використовується 3 потоки за замовчуванням.");
+                THREAD_COUNT = 3;
             }
-            else
-            {
-                Console.WriteLine("Невірний формат");
-                return;
-            }
-        }
-        else
-        {
-            Console.WriteLine("Кількість поторків не вказана, використовуємо кількість за замовчуванням: 3");
-            numberOfThreads = 3;
-        }
 
-        for (int i = 0; i < numberOfThreads; i++)
-        {
-            var threadObj = new SequenceThread(i + 1, i + 1);
-            new Thread(new ThreadStart(threadObj.Run)).Start();
+            Console.Write("Введіть крок: ");
+            if (!double.TryParse(Console.ReadLine(), out STEP) || STEP <= 0)
+            {
+                Console.WriteLine("Невірне значення, використовується крок 0.5 за замовчуванням.");
+                STEP = 0.5;
+            }
+            
+            List<WorkerThread> workers = new List<WorkerThread>();
+            List<int> delays = new List<int>();
+            Random rand = new Random();
+
+            for (int i = 0; i < THREAD_COUNT; i++)
+            {
+                int delay = rand.Next(3000, 10001); 
+                delays.Add(delay);
+                workers.Add(new WorkerThread(i + 1, STEP));
+            }
+
+            foreach (var worker in workers)
+            {
+                new Thread(worker.Run).Start();
+            }
+
+            lock (START_LOCK)
+            {
+                started = true;
+                Monitor.PulseAll(START_LOCK);
+            }
+
+            new ControllerThread(workers, delays).Start();
         }
     }
 }
